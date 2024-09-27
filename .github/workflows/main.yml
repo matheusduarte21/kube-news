@@ -10,18 +10,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4.2.0
-    - name: autenticação do docker hub
-    - uses: docker/login-action@v3.3.0
+    
+    - name: Autenticação no Docker Hub
+      uses: docker/login-action@v3.3.0
       with:
-        username: ${{secrets.DOCKERHUB_USER}}
-        password: ${{secrets.DOCKERHUB_PWD}}
-    - name: construção de imagem docker
-    - uses: docker/build-push-action@v6.8.0
+        username: ${{ secrets.DOCKERHUB_USER }}
+        password: ${{ secrets.DOCKERHUB_PWD }}
+        
+    - name: Construção e push da imagem Docker
+      uses: docker/build-push-action@v6.8.0
       with:
-        contexto: ./src
-        file: ./src/dockerfile
+        context: ./src
+        file: ./src/Dockerfile
         push: true
-        tags:
+        tags: |
           matheusduarte21/kube-news:v1
-          matheusduarte21/kube-news:lastet
+          matheusduarte21/kube-news:latest
+
   
