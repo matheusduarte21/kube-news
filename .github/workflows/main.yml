@@ -22,6 +22,6 @@ jobs:
         file: ./src/dockerfile
         push: true
         tags:
-          matheusduarte/kube-news:v1
-          matheusduarte/kube-news:lastet
+          matheusduarte21/kube-news:v1
+          matheusduarte21/kube-news:lastet
   
